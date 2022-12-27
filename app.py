@@ -1,9 +1,13 @@
+import os
 import openai
+from dotenv import load_dotenv
+load_dotenv()
 
-openai.api_key = "YOUR_API_KEY"
+OPEN_API_KEY = os.getenv("OPEN_API_KEY")
+openai.api_key = OPEN_API_KEY
 
 def generate_response(prompt):
-    model_engine = "text-davinci-002"
+    model_engine = "text-davinci-003"
     prompt = (f"{prompt}")
 
     completions = openai.Completion.create(
